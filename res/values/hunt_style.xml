@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="HuntText">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#4099FF</item>
+        <item name="android:paddingTop">16dp</item>
+    </style>
+    <style name="HuntLabel" parent="HuntText">
+    </style>
+
+</resources>
