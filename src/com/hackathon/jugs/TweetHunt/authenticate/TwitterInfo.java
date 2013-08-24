@@ -33,8 +33,9 @@ public class TwitterInfo extends Activity {
         Intent intent = getIntent();
         AccountManager accountManager = AccountManager.get(getApplicationContext());
         Account account = (Account) intent.getExtras().get("account");
+        Bundle options = new Bundle();
         AccountManagerFuture<Bundle> accountManagerFuture = accountManager.
-                getAuthToken(account, "com.twitter.android.auth.login", false, new GetAuthTokenCallback(), null);
+                getAuthToken(account, "com.twitter.android.oauth.token", options, activity, new GetAuthTokenCallback(), null);
     }
 
     private class GetAuthTokenCallback implements AccountManagerCallback<Bundle> {
@@ -42,14 +43,14 @@ public class TwitterInfo extends Activity {
             Bundle bundle;
             try {
                 bundle = result.getResult();
+
                 Intent intent = (Intent) bundle.get(AccountManager.KEY_INTENT);
 
                 if (intent != null) {
                     startActivity(intent);
-                    String authToken = bundle.getString(AccountManager.KEY_AUTHTOKEN);
-//                    Log.i("authToken", authToken);
                 } else {
-//                    onGetAuthToken(bundle);
+                    String authToken = (String)bundle.get(AccountManager.KEY_AUTHTOKEN);
+                    Log.i("authToken", authToken);
                 }
             } catch (android.accounts.OperationCanceledException e) {
                 e.printStackTrace();
