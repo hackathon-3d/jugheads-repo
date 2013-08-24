@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date To Send:"
+        android:id="@+id/create_date_label"
+        style="@style/HuntLabel"
+        android:layout_marginRight="4dp"
+        />
+
+<Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_toRightOf="@id/create_date_label"
+        android:id="@+id/create_date"
+        style="@style/HuntText"
+        android:editable="false"
+        android:hint="Add start date"
+        android:onClick="showDatePickerDialog"
+        />
+
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/create_date_label"
+        android:id="@+id/create_time_label"
+        android:text="Time To Send:"
+        style="@style/HuntLabel"
+        />
+
+<Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/create_time_label"
+        android:layout_below="@id/create_date"
+        android:id="@+id/create_time"
+        android:gravity="center"
+        android:paddingTop="8dp"
+        style="@style/HuntText"
+        android:editable="false"
+        android:hint="Add start time"
+        android:onClick="showTimePickerDialog"
+        />
+
+<TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/create_time_label"
+        style="@style/HuntLabel"
+        android:id="@+id/hashtag_label"
+        android:text="Hashtag:"
+        />
+
+<EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/hashtag_label"
+        style="@style/HuntLabel"
+        android:id="@+id/hashtag"
+        android:paddingTop="0dp"/>
+
+<TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        style="@style/HuntLabel"
+        android:layout_below="@id/hashtag"
+        android:id="@+id/message_label"
+        android:text="Message:"
+        />
+
+
+<Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        style="@style/HuntText"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="40dp"
+        android:text="Send"
+        android:id="@+id/send"
+        android:onClick="sendClick"
+        />
+
+<EditText
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/send"
+        android:layout_below="@id/message_label"
+        android:id="@+id/message"
+        android:inputType="textMultiLine"
+        android:gravity="top"
+        />
+
+
+
+
+</RelativeLayout>
