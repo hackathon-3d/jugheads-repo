@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import com.hackathon.jugs.TweetHunt.R;
+import com.hackathon.jugs.TweetHunt.TweetData;
 
 import java.util.logging.Handler;
 
@@ -46,6 +47,8 @@ public class OauthManager extends ListActivity {
         Account account = (Account)getListView().getItemAtPosition(position);
         Intent intent = new Intent(this, TwitterInfo.class);
         intent.putExtra("account", account);
+        TweetData data = (TweetData) getIntent().getExtras().get("data");
+        intent.putExtra("data", data);
         startActivity(intent);
     }
 }
